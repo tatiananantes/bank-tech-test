@@ -13,6 +13,10 @@ describe Account do
     end
   end
 
+  it 'has an empty transactions log when account is created' do
+    expect(account.transactions).to eq([])
+  end
+
   describe '.balance' do
     it 'starts at zero' do
       expect(account.balance).to eq(0)

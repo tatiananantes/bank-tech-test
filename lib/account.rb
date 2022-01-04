@@ -3,10 +3,11 @@
 require './lib/transaction'
 
 class Account
-  attr_reader :balance
+  attr_reader :balance, :transactions
 
   def initialize
     @balance = 0.00
+    @transactions = []
   end
 
   def self.create
@@ -16,7 +17,7 @@ class Account
   def deposit(amount)
     raise 'Transaction not allowed! Please select another amount to deposit.' if amount.zero?
     raise 'Transaction not allowed! Please select a positive amount to deposit.' if amount.negative?
-
+    
     @balance += amount
   end
 
