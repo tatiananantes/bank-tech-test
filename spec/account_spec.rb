@@ -10,5 +10,13 @@ describe Account do
     end
   end
 
+  describe '.balance' do
+   it 'starts at zero' do
+     account = Account.create
+     expect(account.balance).to eq(0)
+   end
+  end
+
+
 
 end
