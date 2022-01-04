@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'account'
 
 describe Account do
-  subject(:account) {Account.create}
+  subject(:account) { Account.create }
 
   it { is_expected.to be_a Account }
 
@@ -28,9 +30,10 @@ describe Account do
     end
 
     it 'raises an error if deposit negative amount' do
-      expect { account.deposit(-3.7) }.to raise_error('Transaction not allowed! Please select a positive amount to deposit.')
+      expect do
+        account.deposit(-3.7)
+      end.to raise_error('Transaction not allowed! Please select a positive amount to deposit.')
     end
-
   end
 
   describe '.withdraw' do
@@ -49,10 +52,9 @@ describe Account do
     end
 
     it 'raises an error if withdrawing negative amount' do
-      expect { account.withdraw(-3.7) }.to raise_error('Transaction not allowed! Only positive amounts can be withdrawn.')
+      expect do
+        account.withdraw(-3.7)
+      end.to raise_error('Transaction not allowed! Only positive amounts can be withdrawn.')
     end
-  
   end
-
-
 end
