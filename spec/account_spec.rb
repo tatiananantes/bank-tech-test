@@ -11,10 +11,18 @@ describe Account do
   end
 
   describe '.balance' do
-   it 'starts at zero' do
-     account = Account.create
-     expect(account.balance).to eq(0)
-   end
+    it 'starts at zero' do
+      account = Account.create
+      expect(account.balance).to eq(0)
+    end
+  end
+
+  describe '.deposit' do
+    it 'increases account balance by deposit amount' do
+      account = Account.create
+      account.deposit(15)
+      expect(account.balance).to eq(15)
+    end
   end
 
 

@@ -10,7 +10,10 @@ class Account
     Account.new
   end
 
-
+  def deposit(amount)
+    @balance += amount
+    
+  end
 
 
 end
