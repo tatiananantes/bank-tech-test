@@ -5,10 +5,10 @@ require 'transaction'
 describe 'transaction' do
   context 'initialization values' do
     it 'initializes with the current date' do
-      time = Time.now
+      time = Time.now.strftime('%d/%m/%Y')
+      transaction = Transaction.new
       allow(Time).to receive(:now).and_return(time)
-      new_transaction = Transaction.new
-      expect(new_transaction.date).to eq(time)
+      expect(transaction.date).to eq(time)
     end
   end
 end
