@@ -17,7 +17,8 @@ class Account
   def deposit(amount)
     raise 'Transaction not allowed! Please select another amount to deposit.' if amount.zero?
     raise 'Transaction not allowed! Please select a positive amount to deposit.' if amount.negative?
-    
+    credit = Transaction.new(amount)
+    @transactions << credit
     @balance += amount
   end
 
@@ -25,7 +26,8 @@ class Account
     raise 'Transaction not allowed! Not enough funds!' if @balance < amount
     raise 'Transaction not allowed! Please select an amount to withdraw.' if amount.zero?
     raise 'Transaction not allowed! Only positive amounts can be withdrawn.' if amount.negative?
-
+    debit = Transaction.new(-amount)
+    @transactions << debit
     @balance -= amount
   end
 end

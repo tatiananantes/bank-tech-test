@@ -27,6 +27,7 @@ describe Account do
     it 'increases account balance by deposit amount' do
       account.deposit(15.5)
       expect(account.balance).to eq(15.5)
+      expect(account.transactions[0]).to be_an_instance_of(Transaction)
     end
 
     it 'raises an error if deposit zero' do
