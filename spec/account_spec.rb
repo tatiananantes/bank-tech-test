@@ -22,6 +22,15 @@ describe Account do
       account.deposit(15.5)
       expect(account.balance).to eq(15.5)
     end
+
+    it 'raises an error if deposit zero' do
+      expect { account.deposit(0) }.to raise_error('Transaction not allowed! Please select another amount to deposit.')
+    end
+
+    it 'raises an error if deposit negative amount' do
+      expect { account.deposit(-3.7) }.to raise_error('Transaction not allowed! Please select a positive amount to deposit.')
+    end
+
   end
 
   describe '.withdraw' do
@@ -35,9 +44,14 @@ describe Account do
       expect { account.withdraw(30) }.to raise_error('Transaction not allowed! Not enough funds!')
     end
 
-    it 'raises an error if withdraw zero' do
+    it 'raises an error if withdrawing zero' do
       expect { account.withdraw(0) }.to raise_error('Transaction not allowed! Please select an amount to withdraw.')
     end
+
+    it 'raises an error if withdrawing negative amount' do
+      expect { account.withdraw(-3.7) }.to raise_error('Transaction not allowed! Only positive amounts can be withdrawn.')
+    end
+  
   end
 
 
