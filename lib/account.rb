@@ -3,7 +3,7 @@ class Account
   attr_reader :balance
 
   def initialize
-    @balance = 0
+    @balance = 0.00
   end
   
   def self.create
@@ -15,6 +15,8 @@ class Account
   end
 
   def withdraw(amount)
+    raise 'Transaction not allowed! Not enough funds!' if @balance < amount
+    raise 'Transaction not allowed! Please select an amount to withdraw.' if amount == 0
     @balance -= amount
   end
 
