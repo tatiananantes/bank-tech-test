@@ -25,6 +25,14 @@ describe Account do
     end
   end
 
+  describe '.withdraw' do
+    it 'decreases account balance by withdraw amount' do
+      account = Account.create
+      account.deposit(100)
+      account.withdraw(30)
+      expect(account.balance).to eq(70)
+    end
+  end
 
 
 end
