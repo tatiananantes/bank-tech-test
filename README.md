@@ -1,29 +1,16 @@
-# Bank tech test
-Week 10 - Makers Academy week challenge
+:moneybag: Bank tech test
+=============
+Makers Academy Week 10 Challenge - Solo Week
+----------------------------
 
-### Specifications
+### Requirements
 
-* You should be able to interact with your code via a REPL like IRB or the JavaScript console.  
-* Deposits, withdrawal.
-* Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
+* Interact with your code via a REPL like IRB 
+* Can do deposits and withdrawals
+* Account statement (date, amount, balance) printing
+* Data to ke kept in memory (no DB)
 
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2023  
-**And** a deposit of 2000 on 13-01-2023  
-**And** a withdrawal of 500 on 14-01-2023  
-**When** she prints her bank statement  
-**Then** she would see
-
-```
-date || credit || debit || balance
-14/01/2023 || || 500.00 || 2500.00
-13/01/2023 || 2000.00 || || 3000.00
-10/01/2023 || 1000.00 || || 1000.00
-```
-
-#### User Stories
+### User Stories
 
 ```
 As a customer
@@ -43,14 +30,59 @@ I want to see my bank account balance
 So that I know how much money I have
 
 As a customer 
-I want to be able to see the dates of my banking operations 
+I want to be able to see the details of my banking operations 
 So that I can keep track of transactions
 ```
+#### Acceptance criteria
 
-Progress:
-- set up local and github repo
-- Created user stories
+**Given** a customer makes a deposit of 1000 on 10-01-2023  
+**And** a deposit of 2000 on 13-01-2023  
+**And** a withdrawal of 500 on 14-01-2023  
+**When** it prints their bank statement  
+**Then** it would see
+
+```
+date || credit || debit || balance
+14/01/2023 || || 500.00 || 2500.00
+13/01/2023 || 2000.00 || || 3000.00
+10/01/2023 || 1000.00 || || 1000.00
+```
+
+### What does the program do?
+It allows a customer to open an account with a balance of zero. 
+It then enables a customer to do transactions such as deposits and withdrawals keeping track of the account balance
+A statement of all transactions in reverse order can be printed
+It covers edge cases such as :
+ - only positive numbers allowed
+ - no deposit/withdraw of zero
+ - no overdraft
+
+### Approach
+- Break Requirements & AC into User Stories
+- TDD using RGR cycle: 100% coverage. 
+- Commit often with clear messages
+- Followed Single Responsibility Principle and it has 3 classes: Account, Statement, Transaction. 
+- Account Class - handles deposit and withdraw methods, stores balance and transactions log. 
+- Transaction Class - handles single transaction with date, credit, debit and account balance. 
+- Statement Class - handles the printing of the statement with newest at the top. 
 
 
+### Technologies used
+- Ruby
+- RSpec
+- SimpleCov
+- Rubocop
+- Visual Studio
 
+### How to run the app
+- Clone this repo git clonehttps://github.com/tatiananantes/bank-tech-test.git
+- cd bank-tech-test
+- Run bundle install
+- Run irb in your terminal
+- Run require './lib/account.rb'
+- See screenshot below on how to use the different functionality
+
+![IRB](https://user-images.githubusercontent.com/10349072/148261964-c04b01c7-ea9d-4632-834f-425923f4088c.png)
+
+![RSpec](https://user-images.githubusercontent.com/10349072/148264374-824b7d15-69a8-4524-87b0-5bed090fe729.png)
 
