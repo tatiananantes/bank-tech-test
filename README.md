@@ -85,4 +85,6 @@ It covers edge cases such as :
 ![IRB](https://user-images.githubusercontent.com/10349072/148261964-c04b01c7-ea9d-4632-834f-425923f4088c.png)
 
 ![RSpec](https://user-images.githubusercontent.com/10349072/148264374-824b7d15-69a8-4524-87b0-5bed090fe729.png)
+<img width="1414" alt="Screenshot 2022-01-05 at 18 26 06" src="https://user-images.githubusercontent.com/10349072/148290707-5598fc74-5039-45ba-a6a5-36dc5da62039.png">
+
 
