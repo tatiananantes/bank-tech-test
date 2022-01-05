@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
-require 'account'
+require './lib/account.rb'
 
 describe Account do
   subject(:account) { Account.create }
-
-  it { is_expected.to be_a Account }
+  let(:transaction_deposit) { double :transaction_deposit, :date => "04/01/2022", :credit => 2000, :debit => '', :acc_balance => account.balance + 2000 }
+  let(:transaction_withdraw) { double :transaction_withdraw, :date => "05/01/2022", :credit => '', :debit => 500, :acc_balance => account.balance - 500 }
 
   describe '.create' do
     it 'creates an account' do
@@ -19,7 +17,7 @@ describe Account do
 
   describe '.balance' do
     it 'starts at zero' do
-      expect(account.balance).to eq(0)
+      expect(account.balance).to eq(0.00)
     end
   end
 
@@ -62,4 +60,12 @@ describe Account do
       end.to raise_error('Transaction not allowed! Only positive amounts can be withdrawn.')
     end
   end
+
+    it 'adds the transaction to transactions log' do
+      account.deposit(transaction_deposit.credit)
+      account.deposit(transaction_deposit.credit)
+      account.withdraw(transaction_withdraw.debit)
+      expect(account.transactions.length).to eq(3)
+    end
+
 end

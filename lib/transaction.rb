@@ -1,12 +1,14 @@
-# frozen_string_literal: true
-require './lib/transaction.rb'
+require './lib/account.rb'
 require 'time'
 
 class Transaction
-  attr_reader :date
+  attr_reader :date, :credit, :debit, :acc_balance
 
-  def initialize(amount)
+  def initialize(credit, debit, acc_balance)
     @date = Time.now.strftime('%d/%m/%Y')
-    @amount = amount
+    @credit = credit
+    @debit = debit
+    @acc_balance = acc_balance
   end
+
 end
