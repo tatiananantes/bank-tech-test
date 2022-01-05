@@ -1,4 +1,6 @@
-require './lib/account.rb'
+# frozen_string_literal: true
+
+require './lib/account'
 require 'time'
 
 class Transaction
@@ -10,5 +12,4 @@ class Transaction
     @debit = debit
     @acc_balance = acc_balance
   end
-
 end

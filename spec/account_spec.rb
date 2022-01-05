@@ -1,9 +1,15 @@
-require './lib/account.rb'
+# frozen_string_literal: true
+
+require './lib/account'
 
 describe Account do
   subject(:account) { Account.create }
-  let(:transaction_deposit) { double :transaction_deposit, :date => "04/01/2022", :credit => 2000, :debit => '', :acc_balance => account.balance + 2000 }
-  let(:transaction_withdraw) { double :transaction_withdraw, :date => "05/01/2022", :credit => '', :debit => 500, :acc_balance => account.balance - 500 }
+  let(:transaction_deposit) do
+    double :transaction_deposit, date: '04/01/2022', credit: 2000, debit: '', acc_balance: account.balance + 2000
+  end
+  let(:transaction_withdraw) do
+    double :transaction_withdraw, date: '05/01/2022', credit: '', debit: 500, acc_balance: account.balance - 500
+  end
 
   describe '.create' do
     it 'creates an account' do
@@ -61,11 +67,10 @@ describe Account do
     end
   end
 
-    it 'adds the transaction to transactions log' do
-      account.deposit(transaction_deposit.credit)
-      account.deposit(transaction_deposit.credit)
-      account.withdraw(transaction_withdraw.debit)
-      expect(account.transactions.length).to eq(3)
-    end
-
+  it 'adds the transaction to transactions log' do
+    account.deposit(transaction_deposit.credit)
+    account.deposit(transaction_deposit.credit)
+    account.withdraw(transaction_withdraw.debit)
+    expect(account.transactions.length).to eq(3)
+  end
 end
