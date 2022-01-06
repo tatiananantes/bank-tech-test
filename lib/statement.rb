@@ -11,6 +11,7 @@ class Statement
     end
   end
 
+  private
   def self.float_round(num)
     '%.2f' % num if num.is_a?(Numeric)
   end
