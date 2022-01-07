@@ -10,10 +10,6 @@ class Account
     @transactions = []
   end
 
-  def self.create
-    Account.new
-  end
-
   def deposit(amount)
     raise 'Transaction not allowed! Please select another amount to deposit.' if amount.zero?
     raise 'Transaction not allowed! Please select a positive amount to deposit.' if amount.negative?

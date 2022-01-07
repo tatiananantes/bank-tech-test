@@ -3,7 +3,7 @@
 require './lib/account'
 
 describe Account do
-  subject(:account) { Account.create }
+  subject(:account) { Account.new }
   let(:transaction_deposit) do
     double :transaction_deposit, date: '04/01/2022', credit: 2000, debit: '', acc_balance: account.balance + 2000
   end
